@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'job_application/index'
+
+  get 'job_application/_form'
+
+  get 'job_application/edit'
+
+  get 'job_application/new'
+
+  get 'job_application/show'
+
   resources :jobs
 
   resources :companies
