@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_companies_to_select, only: [:show, :new, :edit, :update, :create]
 
   # GET /jobs
   # GET /jobs.json
@@ -63,6 +64,10 @@ class JobsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_companies_to_select
+      @companies_to_select = Company.all.collect { |c| [c.name, c.id] }
+    end
+
     def set_job
       @job = Job.find(params[:id])
     end

@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration
+class CreateJobApplications < ActiveRecord::Migration
   def change
-    create_table :applications do |t|
+    create_table :job_applications do |t|
       t.string :name
       t.text :resume
       t.text :cover_letter
@@ -8,6 +8,6 @@ class CreateApplications < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :applications, :jobs
+    add_foreign_key :job_applications, :jobs
   end
 end

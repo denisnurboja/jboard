@@ -6,18 +6,18 @@
 </p>
 
 <p>
+  <strong>Company:</strong>
+  <%= @job.company.name %>
+</p>
+
+<p>
   <strong>Location:</strong>
   <%= @job.location %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @job.company %>
+  <%= simple_format(@job.description) %>
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |

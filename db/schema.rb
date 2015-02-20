@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219205924) do
+ActiveRecord::Schema.define(version: 20150219224529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_applications", force: :cascade do |t|
     t.string   "name"
     t.text     "resume"
     t.text     "cover_letter"
@@ -25,13 +31,7 @@ ActiveRecord::Schema.define(version: 20150219205924) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "applications", ["job_id"], name: "index_applications_on_job_id", using: :btree
-
-  create_table "companies", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "job_applications", ["job_id"], name: "index_job_applications_on_job_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "position"
@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 20150219205924) do
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
-  add_foreign_key "applications", "jobs"
+  add_foreign_key "job_applications", "jobs"
   add_foreign_key "jobs", "companies"
 end

@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :company_id %><br>
-    <%= f.text_field :company_id %>
+    <%= f.select :company_id, @companies_to_select, {include_blank: ''}%>
   </div>
   <div class="actions">
     <%= f.submit %>
