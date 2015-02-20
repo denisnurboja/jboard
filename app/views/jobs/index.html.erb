@@ -20,6 +20,7 @@
         <td><%= job.company.name %></td>
         <td><%= job.location %></td>
         <td><%= truncate(job.description) %></td>
+        <td><%= link_to 'Apply', 'placeholder' %></td>
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

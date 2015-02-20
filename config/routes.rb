@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :job_applications
+
   get 'job_application/index'
 
   get 'job_application/_form'
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
 
   get 'job_application/show'
 
-  resources :jobs
+  resources :jobs do
+    resources :job_applications
+  end
 
   resources :companies
 
