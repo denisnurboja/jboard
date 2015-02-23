@@ -10,13 +10,15 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <br />
+    <p class="pull-right"><%= link_to('Home', root_path, :class => 'btn btn-sm btn-default', :role =>"button") %><p>
 <%= yield %>
-</div>
+  </div>
 </body>
 </html>

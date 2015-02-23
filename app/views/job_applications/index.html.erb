@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Job Applications</h1>
+<h1>Job Applications</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,9 +17,9 @@
     <% @job_applications.each do |job_application| %>
       <tr>
         <td><%= job_application.name %></td>
-        <td><%= job_application.resume %></td>
-        <td><%= job_application.cover_letter %></td>
-        <td><%= job_application.job %></td>
+        <td><%= truncate(job_application.resume) %></td>
+        <td><%= truncate(job_application.cover_letter) %></td>
+        <td><%= job_application.job.position %></td>
         <td><%= link_to 'Show', job_application %></td>
         <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
         <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Job application', new_job_application_path %>
+<%= link_to('Apply to a Job', new_job_application_path, :class => 'btn btn-primary btn-md active', :role =>"button") %>
+<%= link_to('View Jobs', jobs_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
+<%= link_to('View Companies', companies_path, :class => 'btn btn-default btn-md active', :role =>'button') %>

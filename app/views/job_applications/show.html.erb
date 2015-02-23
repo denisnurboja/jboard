@@ -7,18 +7,18 @@
 
 <p>
   <strong>Resume:</strong>
-  <%= @job_application.resume %>
+  <%= simple_format(@job_application.resume) %>
 </p>
 
 <p>
   <strong>Cover letter:</strong>
-  <%= @job_application.cover_letter %>
+  <%= simple_format(@job_application.cover_letter) %>
 </p>
 
 <p>
   <strong>Job:</strong>
-  <%= @job_application.job %>
+  <%= @job_application.job.position %>
 </p>
 
-<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
-<%= link_to 'Back', job_applications_path %>
+<%= link_to('Edit', edit_job_application_path(@job_application), :class => 'btn btn-default btn-md active', :role =>'button') %>
+<%= link_to('Back', job_applications_path, :class => 'btn btn-default btn-md active', :role =>'button') %>

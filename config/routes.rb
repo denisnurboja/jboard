@@ -1,20 +1,8 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
+  resources :jobs
   resources :job_applications
-
-  get 'job_application/index'
-
-  get 'job_application/_form'
-
-  get 'job_application/edit'
-
-  get 'job_application/new'
-
-  get 'job_application/show'
-
-  resources :jobs do
-    resources :job_applications
-  end
-
   resources :companies
 
   # The priority is based upon order of creation: first created -> highest priority.
