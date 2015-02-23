@@ -1,4 +1,4 @@
-<%= form_for(@company) do |f| %>
+<%= form_for @company, :html => {:multipart => true} do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= image_tag(@company.company_logo_url) if @company.company_logo? %>
+    <%= f.label 'Upload Company Logo' %>
+    <%= f.file_field :company_logo %>
+    <%= f.hidden_field :company_logo_cache %>
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

@@ -12,4 +12,5 @@ class Company < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
   has_many :job_applications, through: :jobs, dependent: :destroy
   validates :name, presence: true, uniqueness: true
+  mount_uploader :company_logo, CompanyLogoUploader
 end

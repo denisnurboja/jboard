@@ -13,10 +13,10 @@
 
 class Job < ActiveRecord::Base
   belongs_to :company
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
   validates :company_id, presence: true
   validates :position, presence: true
   validates :description, presence: true
-  validates :description, length: { minimum: 500 }
+  validates :description, length: { minimum: 100 }
   validates :location, presence: true
 end

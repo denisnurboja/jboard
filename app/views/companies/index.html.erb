@@ -5,6 +5,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Current Job Openings</th>
       <th colspan="2"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
+        <td><%= image_tag company.company_logo.to_s %></td>
         <td><%= company.name %></td>
         <td><%= company.jobs.size %></td>
         <td><%= link_to 'Show', company %></td>

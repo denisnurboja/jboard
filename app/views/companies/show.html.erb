@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Company Logo:</strong>
+  <%= image_tag @company.company_logo_url.to_s %>
+</p>
+<p>
   <strong>Name:</strong>
   <%= @company.name %>
 </p>
