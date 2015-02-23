@@ -14,7 +14,7 @@
 class Job < ActiveRecord::Base
   belongs_to :company
   has_many :job_applications
-  validates :company, presence: true
+  validates :company_id, presence: true
   validates :position, presence: true
   validates :description, presence: true
   validates :description, length: { minimum: 500 }
