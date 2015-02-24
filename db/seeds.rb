@@ -4,8 +4,8 @@ Company.destroy_all
 unless Company.count > 0
   20.times do
     company = Company.create!(remote_company_logo_url: Faker::Company.logo,
-                              name:
-                              Faker::Company.name + ' ' + Faker::Company.suffix)
+                              name: Faker::Company.name + ' ' +
+                                    Faker::Company.suffix)
     2.times do
       job = company.jobs.create!(position: Faker::Name.title,
                                  location: Faker::Address.country,

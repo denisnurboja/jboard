@@ -17,7 +17,8 @@
     <% end %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
-    <%= image_tag(@job_application.image.default.to_s) %>
+    <br><br>
+    <%= image_tag(@job_application.image.to_s) %>
     <br />
     <% if @job_application.image? %>
       <%= f.label 'Remove Avatar?' %>

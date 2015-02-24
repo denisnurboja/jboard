@@ -49,16 +49,26 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: #a94442;
+  background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+  background-repeat: repeat-x;
+  border-color: #dca7a7;
+  color: #A10615;
   display: table;
   font-family: 'Ubuntu', sans-serif;
+  padding: 5.729px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  background-color: #A10615;
 }
 
 #error_explanation {
-  color: #a94442;
   font-family: 'Ubuntu', sans-serif;
   ul {
-    color: #a94442;
+    color: #C83411;
     margin: 0 0 30px;
   }
   ul li {
