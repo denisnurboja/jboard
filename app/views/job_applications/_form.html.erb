@@ -1,16 +1,29 @@
-<%= form_for(@job_application) do |f| %>
+<%= form_for @job_application, :html => {:multipart => true} do |f| %>
   <% if @job_application.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
-
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@job_application.errors.count, "error") %>.
+      </div>
       <ul>
-      <% @job_application.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @job_application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <% if !@job_application.image? %>
+      <%= f.label 'Upload Avatar:' %>
+    <% end %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+    <%= image_tag(@job_application.image.default.to_s) %>
+    <br />
+    <% if @job_application.image? %>
+      <%= f.label 'Remove Avatar?' %>
+      <%= f.check_box :remove_image %>
+    <% end %>
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

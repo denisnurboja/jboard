@@ -5,6 +5,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Name</th>
       <th>Resume</th>
       <th>Cover letter</th>
@@ -16,10 +17,11 @@
   <tbody>
     <% @job_applications.each do |job_application| %>
       <tr>
+        <td><%= image_tag job_application.image.thumb.to_s %></td>
         <td><%= job_application.name %></td>
         <td><%= truncate(job_application.resume) %></td>
         <td><%= truncate(job_application.cover_letter) %></td>
-        <td><%= job_application.job.position %></td>
+        <td><%= job_application.job.position %> | Job Id: <%= job_application.job.id%></td>
         <td><%= link_to 'Show', job_application %></td>
         <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
         <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>

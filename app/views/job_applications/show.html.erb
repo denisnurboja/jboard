@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+
+<p><strong>Avatar:</strong></p>
+<p><%= image_tag(@job_application.image.default.to_s) %></p>
+<br /><br />
 <p>
   <strong>Name:</strong>
   <%= @job_application.name %>

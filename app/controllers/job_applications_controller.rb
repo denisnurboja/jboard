@@ -5,7 +5,7 @@ class JobApplicationsController < ApplicationController
   # GET /job_applications
   # GET /job_applications.json
   def index
-    @job_applications = JobApplication.all
+    @job_applications = JobApplication.all.shuffle
   end
 
   # GET /job_applications/1
@@ -73,6 +73,6 @@ class JobApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_application_params
-      params.require(:job_application).permit(:name, :resume, :cover_letter, :job_id)
+      params.require(:job_application).permit(:name, :resume, :cover_letter, :job_id, :image, :remote_image, :thumb, :mini, :default, :remove_image, :image_cache)
     end
 end

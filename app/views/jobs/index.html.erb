@@ -18,7 +18,7 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= job.position %></td>
-        <td><%= job.company.name %></td>
+        <td><%= job.company.name %> | Co. ID: <%= job.company.id %></td>
         <td><%= job.location %></td>
         <td><%= truncate(job.description) %></td>
         <td><%= job.job_applications.count %></td>

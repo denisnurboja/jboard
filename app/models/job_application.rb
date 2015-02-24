@@ -17,4 +17,6 @@ class JobApplication < ActiveRecord::Base
   validates :resume, presence: true
   validates :cover_letter, presence: true
   validates :job_id, presence: true
+  mount_uploader :image, AvatarUploader
+  mount_uploader :remote_image, AvatarUploader
 end

@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Company Logo:</strong>
-  <%= image_tag @company.company_logo_url.to_s %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<p><strong>Logo:</strong></p>
+<p><%= image_tag(@company.company_logo.default.to_s) %></p>
+<br /><br />
+<p><strong>Company:</strong></p>
+<p><%= @company.name %></p>
 
 <%= link_to('Edit', edit_company_path(@company), :class => 'btn btn-default btn-md active', :role =>'button') %>
 <%= link_to('Back', companies_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
