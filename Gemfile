@@ -7,6 +7,7 @@ gem 'pg'
 gem 'carrierwave', '~> 0.10.0'
 gem 'faker', '~> 1.4.3'
 gem "mini_magick"
+gem "fog"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +44,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate', '~> 2.6.5'
 end
+gem 'dotenv-rails', :groups => [:development, :test]
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
