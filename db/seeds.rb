@@ -19,3 +19,9 @@ unless Company.count > 0
     end
   end
 end
+
+
+["HTML",  "CSS", "Ruby", "Java", "Python", "Ruby on Rails",  "Node.js", "Javascript", "Coffee Script", "AWS", "Heroku",  "PHP", "MySQL", "SQLite", "PG"].each do |t|
+  # where = find, finds the first or creates the first
+  Technology.where(name: t).first_or_create
+end

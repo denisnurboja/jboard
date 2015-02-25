@@ -3,26 +3,23 @@
 
 <p><strong>Avatar:</strong></p>
 <p><%= image_tag(@job_application.image.to_s) %></p>
-<br /><br />
-<p>
-  <strong>Name:</strong>
-  <%= @job_application.name %>
-</p>
+<br />
+<p><strong>Name:</strong></p>
+<%= @job_application.name %><br>
 
-<p>
-  <strong>Resume:</strong>
-  <%= simple_format(@job_application.resume) %>
-</p>
+<p><strong>Resume:</strong></p>
+<%= simple_format(@job_application.resume) %><br>
 
-<p>
-  <strong>Cover letter:</strong>
-  <%= simple_format(@job_application.cover_letter) %>
-</p>
+<p><strong>Cover letter:</strong></p>
+  <%= simple_format(@job_application.cover_letter) %><br>
 
-<p>
-  <strong>Job:</strong>
-  <%= @job_application.job.position %>
-</p>
+<p><strong>Technologies Applicant Has Used:</strong></p>
+<% @job_application.technologies.each do |t| %>
+  <%= t.name + " | " %>
+<% end %><br>
+
+<p><strong>Job Applying To:</strong></p>
+<%= @job_application.job.position %><br><br>
 
 <%= link_to('Edit', edit_job_application_path(@job_application), :class => 'btn btn-default btn-md active', :role =>'button') %>
 <%= link_to('Back', job_applications_path, :class => 'btn btn-default btn-md active', :role =>'button') %>

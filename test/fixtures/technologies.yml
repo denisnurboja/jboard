@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  company_id: 
+  job_application_id: 
+
+two:
+  type: 
+  company_id: 
+  job_application_id: 

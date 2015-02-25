@@ -17,7 +17,6 @@
     <% end %>
     <%= f.file_field :company_logo %>
     <%= f.hidden_field :company_logo_cache %>
-    <br><br>
     <%= image_tag(@company.company_logo.to_s) %>
     <br />
     <% if @company.company_logo? %>
@@ -26,8 +25,18 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Company Name:" %><br>
     <%= f.text_field :name %>
+  </div><br>
+  <h4>Technologies this company uses:</h4>
+  <div class="field"
+    <%= hidden_field_tag "company[technology_ids][]", nil %>
+    <% Technology.all.each do |technology| %>
+    <%= label_tag dom_id(technology), "", class: "checkbox-inline" %>
+    <%= check_box_tag "company[technology_ids][]", technology.id,
+      @company.technology_ids.include?(technology.id), id: dom_id(technology) %>
+    <%= technology.name %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

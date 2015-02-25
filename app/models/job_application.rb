@@ -9,10 +9,13 @@
 #  job_id       :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  image        :string
+#  remote_image :string
 #
 
 class JobApplication < ActiveRecord::Base
   belongs_to :job
+  has_many :technologies, dependent: :destroy
   validates :name, presence: true
   validates :resume, presence: true
   validates :cover_letter, presence: true

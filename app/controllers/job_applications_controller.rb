@@ -73,6 +73,6 @@ class JobApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_application_params
-      params.require(:job_application).permit(:name, :resume, :cover_letter, :job_id, :image, :remote_image, :thumb, :mini, :default, :remove_image, :image_cache)
+      params.require(:job_application).permit(:name, :resume, :cover_letter, :job_id, :image, :remote_image, :thumb, :mini, :default, :remove_image, :image_cache, technology_ids: [])
     end
 end

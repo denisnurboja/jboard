@@ -37,6 +37,17 @@
     <%= f.label :cover_letter %><br>
     <%= f.text_area :cover_letter %>
   </div>
+  <div class="field"
+  <h4>Technologies You Use:</h4>
+  <div class="field"
+    <%= hidden_field_tag "job_application[technology_ids][]", nil %>
+    <% Technology.all.each do |technology| %>
+    <%= label_tag dom_id(technology), "", class: "checkbox-inline" %>
+    <%= check_box_tag "job_application[technology_ids][]", technology.id,
+      @job_application.technology_ids.include?(technology.id), id: dom_id(technology) %>
+    <%= technology.name %>
+    <% end %>
+  </div>
   <div class="field">
     <%= f.label :job_id %><br>
     <%= f.select :job_id, @jobs_to_select, {include_blank: ''}%>
