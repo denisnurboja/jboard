@@ -18,7 +18,14 @@
 <body>
   <div class="container">
     <br />
-    <p class="pull-right"><%= link_to('Home', root_path, :class => 'btn btn-sm btn-default', :role =>"button") %><p>
+    <p class="navbar-text navbar-right"><small>Signed in as <% if signed_in? %><%= @current_user.name %></small><% end %></a></p>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to "Home", root_path %></li>
+        <li role="presentation"><%= link_to "Companies", companies_path %></li>
+        <li role="presentation"><%= link_to "Jobs", jobs_path %></li>
+        <li role="presentation"><%= link_to "My Applications", job_applications_path %></li>
+
+      </ul>
 <%= yield %>
   </div>
 </body>

@@ -5,54 +5,56 @@
         The form contains <%= pluralize(@job_application.errors.count, "error") %>.
       </div>
       <ul>
-      <% @job_application.errors.full_messages.each do |msg| %>
+        <% @job_application.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <% if !@job_application.image? %>
       <%= f.label 'Upload Avatar:' %>
     <% end %>
+
     <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-    <br><br>
-    <%= image_tag(@job_application.image.to_s) %>
-    <br />
+    <%= f.hidden_field :image_cache %><br><br>
+    <%= image_tag(@job_application.image.to_s) %><br>
+
     <% if @job_application.image? %>
       <%= f.label 'Remove Avatar?' %>
       <%= f.check_box :remove_image %>
     <% end %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+
   <div class="field">
     <%= f.label :resume %><br>
     <%= f.text_area :resume %>
   </div>
+
   <div class="field">
     <%= f.label :cover_letter %><br>
     <%= f.text_area :cover_letter %>
   </div>
-  <div class="field"
-  <h4>Technologies You Use:</h4>
-  <div class="field"
-    <%= hidden_field_tag "job_application[technology_ids][]", nil %>
-    <% Technology.all.each do |technology| %>
-    <%= label_tag dom_id(technology), "", class: "checkbox-inline" %>
-    <%= check_box_tag "job_application[technology_ids][]", technology.id,
-      @job_application.technology_ids.include?(technology.id), id: dom_id(technology) %>
-    <%= technology.name %>
-    <% end %>
+
+  <div class="field">
+    <h4>Technologies You Use:</h4>
+      <%= hidden_field_tag "job_application[technology_ids][]", nil %>
+      <% Technology.all.each do |technology| %>
+        <%= label_tag dom_id(technology), "", class: "checkbox-inline" %>
+        <%= check_box_tag "job_application[technology_ids][]", technology.id,
+        @job_application.technology_ids.include?(technology.id), id: dom_id(technology) %>
+        <%= technology.name %>
+      <% end %>
   </div>
+
   <div class="field">
     <%= f.label :job_id %><br>
     <%= f.select :job_id, @jobs_to_select, {include_blank: ''}%>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  <%= f.hidden_field :user_id %>
 <% end %>

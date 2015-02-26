@@ -1,37 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Job Applications</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Avatar</th>
-      <th>Name</th>
-      <th>Resume</th>
-      <th>Cover letter</th>
-      <th>Job</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @job_applications.each do |job_application| %>
+<% if !signed_in? %>
+  <h3>Sign in to apply!</h3>
+<% else %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= image_tag job_application.image.thumb.to_s %></td>
-        <td><%= job_application.name %></td>
-        <td><%= truncate(job_application.resume) %></td>
-        <td><%= truncate(job_application.cover_letter) %></td>
-        <td><%= job_application.job.position %> | Job Id: <%= job_application.job.id%></td>
-        <td><%= link_to 'Show', job_application %></td>
-        <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
-        <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Resume</th>
+        <th>Cover letter</th>
+        <th>Job</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @job_applications.each do |job_application| %>
+        <tr>
+          <td><%= image_tag job_application.image.thumb.to_s %></td>
+          <td><%= job_application.name %></td>
+          <td><%= truncate(job_application.resume) %></td>
+          <td><%= truncate(job_application.cover_letter) %></td>
+          <td><%= job_application.job.position %> | Job Id: <%= job_application.job.id%></td>
+          <td><%= link_to 'Show', job_application %></td>
+          <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
+          <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to('Apply to a Job', new_job_application_path, :class => 'btn btn-primary btn-md active', :role =>"button") %>
-<%= link_to('View Jobs', jobs_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
-<%= link_to('View Companies', companies_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
+  <br>
+
+  <%= link_to('Apply to a Job', new_job_application_path, :class => 'btn btn-primary btn-md active', :role =>"button") %>
+  <%= link_to('View Jobs', jobs_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
+  <%= link_to('View Companies', companies_path, :class => 'btn btn-default btn-md active', :role =>'button') %>
+<% end %>
