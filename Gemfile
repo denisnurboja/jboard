@@ -8,6 +8,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'faker', '~> 1.4.3'
 gem "mini_magick"
 gem "fog"
+gem 'activeadmin', github: 'activeadmin'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
