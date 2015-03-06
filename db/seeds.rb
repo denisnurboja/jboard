@@ -1,4 +1,6 @@
 # Generate 20 Companies with 2 Jobs each and 2 Job Applications per Job.
+JobApplication.destroy_all
+Job.destroy_all
 Company.destroy_all
 
 unless Company.count > 0

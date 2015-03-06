@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by(name: "Guest")
   end
 
-  helper_method :signed_in?
+  helper_method :current_user, :signed_in?
 
   def signed_in?
     return true if @current_user
