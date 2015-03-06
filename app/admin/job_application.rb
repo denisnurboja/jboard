@@ -16,7 +16,7 @@ ActiveAdmin.register JobApplication do
   form do |f|
     f.inputs do
       f.input :job, collection: Job.all.map { |job|
-        [job.position + ' | ' + job.location + ' | ' +  job.id.to_s]
+        [job.id.to_s + ' | ' + job.position + ' | ' + job.location]
       }
       f.input :name
       f.input :user
